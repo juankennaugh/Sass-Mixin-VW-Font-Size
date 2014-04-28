@@ -1,0 +1,29 @@
+{
+  "name": "Sass-VW-Font-Size",
+  "version": "0.1",
+  "homepage": "http://forepoint.co.uk",
+  "authors": [
+    "webteam@forepoint.co.uk"
+  ],
+  "description": "A Sass mixin used to create a vw font-size value based of a px value.",
+  "main": "_vw-font-size.scss",
+  "keywords": [
+    "vw",
+    "css3",
+    "vw",
+    "unit",
+    "sass",
+    "mixin"
+  ],
+  "dependencies": {
+    "sass-mq": "*"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
