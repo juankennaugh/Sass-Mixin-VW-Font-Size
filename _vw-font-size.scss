@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    $VW FONT SIZE
+\*------------------------------------*/
+
+/**
+ * 
+ * Used to create a vw font-size value based of a px value passed through to the mixin.
+ * Works alongside the mq() mixin and the strip-unit() function from our Sass Package
+ *
+ * This is an experimental Mixin, Do not use in a production environment.
+ *
+ * Usage: @include vw-font-size(( size:16,breakpoints:$mq-breakpoints, line-height: 24 ));
+ *
+ * @author Adam Bulmer
+ * @author Tim Perry
+ * @version 0.1a
+ * 
+ */
+@mixin vw-font-size( $args ) {
+
+    $breakpoints: map-get( $args, breakpoints );
+
+    $font-size: map-get( $args, size );
+    $font-size: 16 !default;
+    
+    $line-height: map-get( $args, line-height );
+    $line-height: 24 !default;
+
+    @each $name, $value in $breakpoints {
+        @include mq( $from:$name ) {
+            @include mq( $to:large ) {
+                
+                font-size: $font-size+px;
+                font-size: ( strip-unit( $font-size ) / strip-unit( $value ) ) * 100+vw;
+
+                line-height: $line-height+px;
+                line-height: ( strip-unit( $line-height ) / strip-unit( $value ) ) * 100+vw;
+            
+            }
+        }
+    }
+
+}
